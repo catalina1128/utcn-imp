@@ -45,6 +45,7 @@ public:
     REF,
     BINARY,
     CALL,
+    INT,
   };
 
 public:
@@ -133,6 +134,25 @@ private:
   std::shared_ptr<Expr> callee_;
   ArgList args_;
 };
+
+/**
+ * Int expression.
+ */
+class IntExpr : public Expr {
+
+public:
+  IntExpr(const uint64_t value)
+    : Expr(Kind::INT)
+    , value_(value)
+  {
+  }
+
+  uint64_t GetValue() const { return value_; } 
+
+private:
+   uint64_t value_;
+};
+
 
 /**
  * Block statement composed of a sequence of statements.
