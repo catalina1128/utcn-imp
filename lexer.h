@@ -37,6 +37,8 @@ public:
     FUNC,
     RETURN,
     WHILE,
+    IF,
+    ELSE,
     // Symbols.
     LPAREN,
     RPAREN,
@@ -52,6 +54,13 @@ public:
     STRING,
     IDENT,
     END,
+    //lab2
+    MINUS,
+    MOD,
+    MUL,
+    DIV,
+    EQ,
+    NEQ,
   };
 
 public:
@@ -110,9 +119,19 @@ public:
   static Token Func(const Location &l) { return Token(l, Kind::FUNC); }
   static Token Return(const Location &l) { return Token(l, Kind::RETURN); }
   static Token While(const Location &l) { return Token(l, Kind::WHILE); }
+  //lab2
+  static Token If(const Location &l) { return Token(l, Kind::IF); }
+  static Token Else(const Location &l) { return Token(l, Kind::ELSE); }
   static Token Ident(const Location &l, const std::string &str);
   static Token String(const Location &l, const std::string &str);
   static Token Int(const Location &l, uint64_t &value);
+
+  static Token Minus(const Location &l) { return Token(l, Kind::MINUS); }
+  static Token Mul(const Location &l) { return Token(l, Kind::MUL); }
+  static Token Mod(const Location &l) { return Token(l, Kind::MOD); }
+  static Token Div(const Location &l) { return Token(l, Kind::DIV); }
+  static Token Eq(const Location &l) { return Token(l, Kind::EQ); }
+  static Token Neq(const Location &l) { return Token(l, Kind::NEQ); }
 
   /// Print the token to a stream.
   void Print(std::ostream &os) const;

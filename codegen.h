@@ -114,6 +114,8 @@ private:
   void LowerBlockStmt(const Scope &scope, const BlockStmt &blockStmt);
   /// Lowers a while statement.
   void LowerWhileStmt(const Scope &scope, const WhileStmt &whileStmt);
+  //lab2
+  void LowerIfStmt(const Scope &scope, const IfStmt &ifStmt);
   /// Lowers a return statement.
   void LowerReturnStmt(const Scope &scope, const ReturnStmt &returnStmt);
   /// Lowers a standalone expression statement.
@@ -151,6 +153,14 @@ private:
   void EmitReturn();
   /// Emit an add opcode.
   void EmitAdd();
+  //lab2 emits
+  void EmitSub();
+  void EmitMul();
+  void EmitMod();
+  void EmitDiv();
+  void EmitEq();
+  void EmitNeq();
+  
   /// Emit a label.
   void EmitLabel(Label label);
   /// Emit a conditional jump.
